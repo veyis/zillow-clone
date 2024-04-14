@@ -93,7 +93,7 @@ const Property = async ({params}) => {
 <p> Phone Number : {property.managinBroker.phoneNumber}</p>
 <br />
 
-<Link className="search-button" href="/"> Back to Listings </Link>
+<Link className="button" href="/"> Back to Listings </Link>
 </div>
       </div>
 
