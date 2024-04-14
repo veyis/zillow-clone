@@ -1,0 +1,152 @@
+* {
+  text-decoration: none;
+  font-family: sans-serif;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  width: 100vw;
+
+  
+}
+
+nav {
+  height: 80px;
+  display: flex ;
+  justify-content: center;
+  align-items: center;
+  border-bottom: rgb(199,199,199) solid 1px;
+
+}
+
+.search-bar {
+  height: 50px;
+  display:flex;
+  justify-content: flex-start;
+  align-items: center;
+  border-bottom: rgb(199, 199, 199) solid 1px;
+
+}
+
+.search-bar input {
+
+border : rgb(199, 199, 199) solid 1px;
+border-radius: 5px;
+width: 300px  ;
+padding: 8px;
+margin : 10px 5px 10px 20px;
+
+}
+
+.search-bar button {
+  background-color: rgb(0, 106, 255);
+  color: rgb(255, 255, 255);
+
+  border : none;
+  border-radius: 5px;
+  padding: 8px;
+  margin : 10px 5px 10px 5px;
+  
+
+  cursor: pointer;
+} 
+
+main {
+  display: flex;
+}
+
+article {
+  width: 50vw;
+
+}
+
+article.listings {
+box-shadow: rgba(60, 64, 67, 0.3);
+padding: 20px;
+}
+
+.card-container {
+  
+  width: 100%;
+  height: 90%;
+  display: flex ;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  overflow-y: scroll;
+}
+
+.card {
+  background-color: rgb(255, 255, 255)  ;
+  border-radius: 5px;
+
+  box-shadow: rgba(0, 0, 0, 0.24) 0 3px 8px;
+  width: 300px;
+  height: 200px;
+  margin: 5px;
+}
+
+.card .text-container {
+  padding: 5px;
+
+}
+
+.card h1, h2, h3, p {
+  margin:1px;
+  padding: 1px;
+  color : rgb(0,0,0)
+}
+
+.card-image {
+  width: 100%;
+  height: 50%;
+  overflow: hidden;
+} 
+
+.property {
+  margin : 50px 100px;
+  border-radius: 20px;
+  box-shadow: rgba(0, 0, 0, 0.24) 0 3px 8px;
+
+  display: flex;
+
+}
+
+.property-images {
+
+  width: 100%;
+  
+}
+
+
+
+.property-images-container {
+  width: 70%;
+  
+}
+
+.property-image-container {
+  width: 30%;
+  padding: 30px;
+}
+
+
+
+.property-info-container {
+
+  width: 30%;
+  padding: 30px;
+}
+
+
+.property-info-container span {
+
+  border: solid 1px rgb(199, 199, 199);
+  border-radius: 5px;
+  padding: 4px 10px;
+  margin: 5px 0 ;
+
+}
+
