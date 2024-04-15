@@ -6,20 +6,20 @@ import { GoogleMap, useJsApiLoader, Marker } from '@react-google-maps/api';
 const Map = ({ locations }) => {
   const containerStyle = {
     width: '100%',
-    height: '90%'
+    height: '100%'
   };
 
   console.log("myLocations:",locations);
 
-  const defaultCenter = { lat: 40.7128, lng: -74.0060 }; // Example: Default to New York City
-
+  
   // Check if there are any locations, and if not, use default center
-  const center = locations.length > 0 ? {
-      lat: locations[0].latitude,
-      lng: locations[0].longitude
-  } : defaultCenter;
+  const center =  {
+      lat: locations[0]?.latitude,
+      lng: locations[0]?.longitude
+  } 
 
   const image = "https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png";
+
   const { isLoaded } = useJsApiLoader({
     id: 'google-map-script',
     googleMapsApiKey: process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY
@@ -28,15 +28,13 @@ const Map = ({ locations }) => {
   const [map, setMap] = useState(null);
 
   const onLoad = useCallback(function callback(map) {
-    const bounds = new window.google.maps.LatLngBounds();
-    locations.forEach(location => {
-      bounds.extend(new window.google.maps.LatLng(location.latitude, location.longitude));
-    });
-    map.fitBounds(bounds);
-    setMap(map);
-  }, [locations]); // Include locations in dependencies
+    map.setZoom(7);
+    setMap(map)
+  }, []); // No dependencies needed
 
-  const onUnmount = useCallback(function callback(map) {
+
+
+  const onUnmount = useCallback(map =>  {
     setMap(null);
   }, []); // No dependencies needed here
 
@@ -46,13 +44,12 @@ const Map = ({ locations }) => {
         <GoogleMap
           mapContainerStyle={containerStyle}
           center={center}
-          zoom={10}
           onLoad={onLoad}
           onUnmount={onUnmount}
         >
-          {locations.map((location) => (
+          {locations.map((location,_index) => (
             <Marker
-              key={location.id}
+              key={_index }
               position={{ lat: location.latitude, lng: location.longitude }}
               icon={{
                 url: image,
