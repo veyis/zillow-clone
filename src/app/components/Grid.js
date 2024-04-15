@@ -6,21 +6,16 @@ import Map from "./Map";
 const Grid = ({ properties }) => {
     const [input, setInput] = useState("");
     const [houses, setHouses] = useState(properties);
-    const [locations, setLocations] = useState([]);
-
-    useEffect(() => {
-        // Update locations whenever houses is updated
-        setLocations(houses.map((house) => house.location));
-    }, [houses]); // Dependency array, ensuring effect runs only if houses changes
+    const [locations, setLocations] = useState(houses.map(house => house.location));
 
     const setInputAndMapLocations = (value) => {
         setInput(value);
-        const filteredHouses = properties.filter((house) =>
-            house.location.toLowerCase().includes(value.toLowerCase())
-        );
-        setHouses(filteredHouses);
-        // setLocations call is removed from here and handled by useEffect
+        setHouses(properties.filter(property => property.name.toLowerCase().includes(value.toLowerCase())));
+        setLocations(houses.map(house => house.location));
     };
+
+    
+
 
     console.log("locations:", locations);
 
@@ -45,9 +40,13 @@ const Grid = ({ properties }) => {
                             <Card
                                 key={property.id}
                                 property={property}
+                           
                             />
-                            ))
+                                ))
+
                         }
+
+
                     </div>
                 </article>
             </main>
