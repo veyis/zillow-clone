@@ -9,10 +9,15 @@ const Map = ({ locations }) => {
     height: '90%'
   };
 
-  const center = {
-    lat: locations[0].latitude,
-    lng: locations[0].longitude
-  };
+  console.log("myLocations:",locations);
+
+  const defaultCenter = { lat: 40.7128, lng: -74.0060 }; // Example: Default to New York City
+
+  // Check if there are any locations, and if not, use default center
+  const center = locations.length > 0 ? {
+      lat: locations[0].latitude,
+      lng: locations[0].longitude
+  } : defaultCenter;
 
   const image = "https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png";
   const { isLoaded } = useJsApiLoader({
