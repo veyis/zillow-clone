@@ -65,10 +65,13 @@ const getProperties = async () => {
 }
 
 
+
 const Home = async()  => {
   const properties = await getProperties()
+  const locations = properties.map(property => property.location)
   // console.log(properties)
 
+console.log(locations)
 
   return (
     <>
@@ -76,7 +79,7 @@ const Home = async()  => {
       <SearchBar />
       <main>
         <article>
-          <Map />
+          <Map locations={locations} />
         </article>
         <article className="listings">
           <h2>Rental Listings</h2>

@@ -21,19 +21,13 @@ const Card = ({property}) => {
           alt = {property.name}
           width = {300}
           height = {150} 
-
-        
         
         />
         <div className='text-container'>
           <h3> ${property.rentalPrice}/ month</h3>
           <h3> {property.beds} Beds </h3>
         <p>    {property.name}</p>
-
-
-    
         </div>
-
       </div>
     
       </Link>

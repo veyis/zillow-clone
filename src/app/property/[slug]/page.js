@@ -89,16 +89,15 @@ const Property = async ({params}) => {
 </ul>
 <br />
 <h3> Licenced Brokerage  </h3> 
-<p> Managin Broker: {property.managinBroker.name} </p>
-<p> Phone Number : {property.managinBroker.phoneNumber}</p>
+
+<p> Managing Broker: {property.managinBroker ? property.managinBroker.name : '-'} </p>
+<p> Phone Number: {property.managinBroker ? property.managinBroker.phoneNumber : '-'} </p>
+
 <br />
 
 <Link className="button" href="/"> Back to Listings </Link>
 </div>
       </div>
-
-
-      
     </>
   );
 }
